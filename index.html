@@ -12,58 +12,59 @@
 </head>
 <body>
     <header class="container text-center">
-        <h2 class="text-primary mb-2">Saving Master <span><img src="./images/bitcoin-brands.svg" width="35" height="35"></span></h2>
+        <h2 class="text-primary my-1">Saving Master <span><img src="./images/bitcoin-brands.svg" width="35" height="35"></span></h2>
     </header>
     <main class="container text-center my-4">
+        <!-- saving calculation area -->
         <section class="row">
             <div class="col-md-6 pe-lg-4"> <img src="./images/money.webp" class="img-fluid"> </div>
-            <div class="col-md-6 ps-5 bg-light">
+            <div class="col-md-6 ps-5 bg-light rounded-3">
                 <div class="col-md-6 m-auto">
                     <div class="row">
-                        <h3>Income</h3>
+                        <h3 class="mt-1">Income</h3>
                         <div class="d-flex">
                             <label class="input-group-text me-3">Income:</label>
-                            <input class="form-control" type="number" value="10000">
+                            <input id="income" class="form-control" type="number" value="10000">
                         </div>
                     </div>
                     <div class="row">
-                        <h3>Expenses</h3>
+                        <h3 class="mt-1">Expenses</h3>
                         <div class="d-flex my-2">
                             <label class="input-group-text me-3">Food:</label>
-                            <input class="form-control" type="number" value="3000">
+                            <input id="food" class="form-control" type="number" value="3000">
                         </div>
                     </div>
                     <div class="row">
                         <div class="d-flex my-2">
                             <label class="input-group-text me-3">Rent:</label>
-                            <input class="form-control" type="number" value="2000">
+                            <input id="rent" class="form-control" type="number" value="2000">
                         </div>
                     </div>
                     <div class="row">
                         <div class="d-flex my-2">
                             <label class="input-group-text me-3">Clothes:</label>
-                            <input class="form-control" type="number" value="500">
+                            <input id="clothe" class="form-control" type="number" value="500">
                         </div>
                     </div>
                    <div class="container">
                     <div class="row my-3">
-                        <button class="btn btn-primary">Calculate</button>
+                        <button id="calculate" class="btn btn-primary">Calculate</button>
                     </div>
                    </div>
-                    <h5>Total Expenses: 5500</h5>
-                    <h5>Balance: 4500</h5>
+                    <h5>Total Expenses: <span id="total-expenses">5500</span></h5>
+                    <h5>Balance: <span id="balance">4500</span></h5>
                 </div>
+                <!-- saving calculation area -->
                 <div class="row">
                     <div class="d-flex justify-content-center my-2">
                         <label class="input-group-text me-3">Save:</label>
-                        <input class="form-control w-25" type="number" value="20">
+                        <input id="percentage" class="form-control w-25" type="number" value="20">
                         <p class="input-group-text my-0">%</p>
-                        <button class="btn btn-primary">Save</button>
+                        <button id="save-action" class="btn btn-primary">Save</button>
                     </div>
-                    <h5>Saving Amount: 2000</h5>
-                    <h5>Remaining Balance: 2500</h5>
+                    <h5>Saving Amount: <span id="saving-amount">2000</span></h5>
+                    <h5>Remaining Balance: <span id="remaining-balance">2500</span></h5>
                 </div>
-                <!-- <div class="col-md-6"></div> -->
             </div>
         </section>
     </main>
