@@ -1,32 +1,38 @@
-const income = document.getElementById('income');
-const food = document.getElementById('food');
-const rent = document.getElementById('rent');
-const clothe = document.getElementById('clothe');
-const totalExpenses = document.getElementById('total-expenses');
-const balance = document.getElementById('balance');
-const calculate = document.getElementById('calculate').addEventListener('click', () => {
-    const foodValue = parseFloat(food.value);
-    const rentValue = parseFloat(rent.value);
-    const clotheValue = parseFloat(clothe.value);
-    const totalCost = foodValue + rentValue + clotheValue;
-    totalExpenses.innerText = totalCost;
-    // after cost remain balance
-    const incomeValue = parseFloat(income.value);
-    const afterExpenses = incomeValue - totalCost;
-    balance.innerText = afterExpenses;
+// Get Elements id using the function
+function getElementId(elementId) {
+   return document.getElementById(elementId);
+}
+// Calling all elements and keep store
+const income = getElementId('income');
+const food = getElementId('food');
+const rent = getElementId('rent');
+const clothe = getElementId('clothe');
+const totalExpenses = getElementId('total-expenses');
+const balance = getElementId('balance');
+const percentage = getElementId('percentage');
+const savingAmount = getElementId('saving-amount');
+const remainingBalance = getElementId('remaining-balance');
+
+
+/* Expenses area calculation function*/
+function getConvertValue(food, rent, clothe, income) {
+    totalExpenses.innerText = parseFloat(food) + parseFloat(rent) + parseFloat(clothe);
+    balance.innerText = parseFloat(income) - parseFloat(totalExpenses.innerText);
+}
+// Expenses Calculate Event Handler
+document.getElementById('calculate').addEventListener('click', () => {
+    getConvertValue(food.value, rent.value, clothe.value, income.value);
 });
 
-/* Saving area calculation */
-const percentage = document.getElementById('percentage');
-const savingAmount = document.getElementById('saving-amount');
-const remainingBalance = document.getElementById('remaining-balance');
-document.getElementById('save-action').addEventListener('click', () => {
-    const incomeToNum = parseFloat(income.value);
-    const percentageToNum = parseFloat(percentage.value) / 100;
-    const saveAmount = incomeToNum * percentageToNum;
+
+/* Saving area calculation function*/
+function getSaving(income, percentage) {
+    const saveAmount = parseFloat(income) * (parseFloat(percentage) / 100);
     savingAmount.innerText = saveAmount;
-// remaining balance
-    const balanceToNum = parseFloat(balance.innerText);
-    const remainBal = balanceToNum - saveAmount;
-    remainingBalance.innerText = remainBal;
+    remainingBalance.innerText = parseFloat(balance.innerText) - saveAmount;
+}
+
+// Save Event Handler
+document.getElementById('save-action').addEventListener('click', () => {
+    getSaving(income.value, percentage.value);
 })
