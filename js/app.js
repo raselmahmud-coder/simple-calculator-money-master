@@ -16,14 +16,6 @@ const popupTwo = getElementId("error-show-two");
 function getElementId(elementId) {
     return document.getElementById(elementId);
 }
-// Expenses Calculate Event Handler
-calculateEventListen.addEventListener('click', () => {
-    getConvertValue(foodInput.value, rentInput.value, clotheInput.value, incomeInput.value);
-});
-// Save Event Handler
-saveEventListen.addEventListener('click', () => {
-    getSaving(incomeInput.value, percentageInput.value);
-});
 /* Expenses area calculation function*/
 function getConvertValue(food, rent, clothe, income) {
     // validation error handling
@@ -50,6 +42,7 @@ function getConvertValue(food, rent, clothe, income) {
         totalExpenses.innerText = totalCost;
         balance.innerText = parseFloat(income) - parseFloat(totalExpenses.innerText);
     }
+    // finally empty string in the input
     foodInput.value = '';
     rentInput.value = '';
     clotheInput.value = '';
@@ -74,3 +67,11 @@ function getSaving(income, percentage) {
     }
     percentageInput.value = '';
 }
+    // Expenses Calculate Event Handler
+    calculateEventListen.addEventListener('click', () => {
+        getConvertValue(foodInput.value, rentInput.value, clotheInput.value, incomeInput.value);
+    });
+    // Save Event Handler
+    saveEventListen.addEventListener('click', () => {
+        getSaving(incomeInput.value, percentageInput.value);
+    });
